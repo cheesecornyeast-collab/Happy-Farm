@@ -1,0 +1,94 @@
+*{margin: 0;padding: 0;}
+body{background-color: rgba(5, 5, 5, 0.605);}a{text-decoration: none;}a:hover{text-decoration: underline;}
+header {
+  /* 佈局系統 */
+  display: grid;
+  grid-template-columns: auto 1fr; /* 左：背景圖區，右：內容區 */
+  grid-template-rows: auto 1fr;     /* 上：標題區，下：導航區 */
+  grid-template-areas: 
+    "logo title"
+    "logo nav";
+  
+  /* 尺寸與間距 */
+  width: 36.5vw;
+  height: 133px;
+  padding: 0; /* 移除 padding，改用 grid gap */
+  gap: 0;     /* 網格間距為0，用內部 margin 控制 */
+  
+  /* 邊框與背景 */
+  border: 1vw solid rgb(228, 139, 15);
+  background-color: rgb(148, 157, 154);
+  margin: 1vw 0.5vw;
+  box-sizing: border-box; /* 關鍵！ */
+  
+  /* 背景圖設定 */
+  background-image: url(images/HF-01.svg);
+  background-repeat: no-repeat;
+  background-position: left center; /* 背景圖靠左對齊 */
+  background-size: auto 100%; /* 高度填滿，寬度自動 */
+}
+
+/* 背景圖區域（左側） */
+header::before {
+  content: "";
+  grid-area: logo;
+  width: 150px; /* 背景圖的固定寬度，請根據實際圖片調整 */
+}
+
+/* 標題區域（右上） */
+header h1 {
+  grid-area: title;
+  margin: 5px 0 0 3px; /* 上5px 右0 下0 左3px */
+  align-self: start;   /* 靠上對齊 */
+  
+  /* 標題樣式 */
+  font-style: italic;
+  white-space: nowrap; /* 防止文字換行 */
+}
+
+/* 導航區域（右下） */
+header nav {
+  grid-area: nav;
+  margin: 0 5px 5px 0; /* 上0 右5px 下5px 左0 */
+  align-self: end;     /* 靠下對齊 */
+  justify-self: end;   /* 靠右對齊 */
+}
+
+/* 導航列表樣式 */
+header nav ul {
+  display: flex;
+  gap: 15px; /* 連結之間的間距 */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  color: rgb(95, 6, 136);
+}
+
+
+header nav a {
+  text-decoration: none;
+  color: inherit;
+  white-space: nowrap; /* 防止連結文字換行 */
+}
+
+header nav a:hover {
+  text-decoration: underline;
+}
+h2{color: gold;font-size: 3.6vw;}blockquote{color: #f18f6c;}p{color: rgb(193, 159, 226);}
+p{color: #ddabe0;font-size: 20px;margin: 15px 0;}
+body h1{font-size: 3vw;}
+main sections {display: grid;grid-template-columns: repeat(auto-fit, minmax(27vw, 1fr));gap: 2vw;padding: 1vw;border: 1vw rgb(228, 139, 15) dotted;margin: 1vw .5vw;}
+main sections section{display: flex;flex-direction: column;align-items: center;}
+main sections section img{width:100%;height: 100%;object-fit: cover;object-position: bottom;}
+main sections section p{color: #ed8282;font-size: 3.3vw;}
+main plus{display: flex;padding: 1vw;border: 1vw rgb(228, 139, 15) dashed;margin: 1vw .5vw;}
+main plus img{width:fit-content;height:20vw;}
+main plus p {font-size: 3.3vw;}
+main plus p a {font-size: 3.3vw;}
+.ranma{background-color: rgb(255, 38, 0);}
+.ranma p{background-color: rgb(255, 38, 0);color: rgb(255, 255, 255);}
+.tmot{background-color: aquamarine;}
+.tmot p{background-color: aquamarine;color: brown;}
+.uy{background-color: beige;}
+.uy p{background-color: beige;color: purple;}
+footer p{background-color: ivory;color: #ed8282;font-size: 30px;}
